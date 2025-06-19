@@ -1,0 +1,52 @@
+<div class="bg"></div>
+<div class="gradient-bg"></div>
+
+<div class="login-container">
+  <div *ngIf="isLoginActive" id="loginForm" class="form-section">
+    <h2 class="login-title">Login</h2>
+    <form>
+      <div class="input-group">
+        <input type="text" placeholder="Username"  [(ngModel)]="userLogin" name="username"  >
+        <span class="icon-user">👤</span>
+      </div>
+      <div class="input-group">
+        <input type="password" placeholder="Password"  [(ngModel)]="userPassword" name="userpassword">
+        <span class="icon-lock">🔒</span>
+      </div>
+      <a (click)="onLogin()"  class="login-btn">Login</a>
+    </form>
+    <a  class="switch-link" (click)="showRegister()" >Register</a>
+    <a  class="switch-link" (click)="backMain()">Back to main page</a>
+
+  </div>
+
+
+  <div *ngIf="!isLoginActive" id="register-form" class="form-section">
+    <h2 class="login-title">Register</h2>
+    <form>
+      <div class="input-group">
+        <input type="text" placeholder="Name" [(ngModel)]="newName" name="newname"  >
+        <span class="icon-user">👤</span>
+      </div>
+      <div class="input-group">
+        <input type="text" placeholder="Username" [(ngModel)]="newLogin" name="newlogin"  >
+        <span class="icon-user">🧑</span>
+      </div>
+      <div class="input-group">
+        <input type="password" placeholder="Password" [(ngModel)]="newPassword" name="newpassword"  >
+        <span class="icon-lock">🔒</span>
+      </div>
+      <div class="input-group">
+        <input type="password" placeholder="Confirm Password" [(ngModel)]="newPassword2" name="newpassword2" >
+        <span class="icon-password-confirm">🔒</span>
+      </div>
+      <button type="submit" class="register-btn" (click)="onRegister()">Register</button>
+    </form>
+    <a class="switch-link" (click)="showLogin()">Back to Login</a>
+  </div>
+</div>
+
+
+
+
+

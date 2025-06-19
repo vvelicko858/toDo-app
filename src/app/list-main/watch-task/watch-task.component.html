@@ -1,0 +1,21 @@
+<div class="task">
+  <div class="task-container">
+    <div class="task-container--name">
+      <p>{{ task?.taskName }}</p>
+    </div>
+
+    <button class="close-btn" (click)="close()"> &times;</button>
+
+    <div class="task-container--date">
+      <p>Дата: {{ task?.taskDate }}</p>
+    </div>
+
+    <div class="task-container--description">
+      <p>Описание: {{ task?.taskDescr }}</p>
+    </div>
+
+    <div class="task-container--status">
+      <p>Статус: {{ task?.done ? 'Выполнено' : 'Не выполнено' }}</p>
+    </div>
+  </div>
+</div>

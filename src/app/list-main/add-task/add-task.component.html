@@ -1,0 +1,24 @@
+<div class="task">
+  <div class="task-container">
+    <div class="task-container--name">
+    <p>Новая задача!</p>
+
+    </div>
+    <button href="" class="close-btn" (click)="close()"> &times;</button>
+
+    <div class="input-group">
+      <input type="text" required  placeholder="Name of the task" [(ngModel)]="nameTask" name="nameTask">
+    </div>
+    <div class="input-group">
+      <input type="text" required  placeholder="Description..." [(ngModel)]="descrTask" name="descrTask">
+    </div>
+    <div class="input-group">
+      <input type="date" required  placeholder="Task date <d.m.y>" [(ngModel)]="dateTask" name="dateTask">
+    </div>
+
+    <button class="save-btn" (click)="save()">Сохранить</button>
+
+  </div>
+</div>
+
+

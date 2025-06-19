@@ -1,0 +1,39 @@
+<div class="user">
+  <div class="main-list">
+    <header class="main-header">
+      <h3>Hello, {{authService.getUserName()}}!</h3>
+
+
+      <nav class="main-menu">
+        <a routerLink="./addTask" routerLinkActive="active" class="main-menu--button">Добавить задачу</a>
+        <a class="main-menu--button" (click)="logOut()">Выйти из аккаунта</a>
+      </nav>
+    </header>
+    <section class="main-allTask" *ngIf="getSortedUser()?.tasks?.length > 0">
+      <article
+        *ngFor="let task of getSortedUser()?.tasks"
+        [attr.data-task-id]="task.id"
+        [ngClass]="{ 'task': true, 'completed': task.done }"
+        (click)="cardEvent($event)">
+        <h3 class="task-name">{{task.taskName}}</h3>
+        <p class="task-date">{{task.taskDate}}</p>
+        <p class="task-description">{{task.taskDescr}}</p>
+        <div class="task-actions">
+          <button class="task-done" (click)="toggleTaskDone(task.id)"> {{ task.done ? 'Пометить как не выполненное' : 'Выполнено' }}</button>
+          <div class="task-buttons">
+            <button class="task-change" (click)="change(task.id)">Изменить</button>
+            <button class="task-remove" (click)="taskRemove(task.id)">Удалить</button>
+          </div>
+        </div>
+      </article>
+    </section>
+    <div class="zero-task" *ngIf="!(getSortedUser()?.tasks?.length)">
+      <h1>Задач ещё нет...</h1>
+      <a routerLink="./addTask" routerLinkActive="active" class="main-menu--button">Добавить задачу</a>
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
+
+

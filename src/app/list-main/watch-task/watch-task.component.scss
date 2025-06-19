@@ -44,6 +44,13 @@
   overflow: hidden;
   z-index: 2;
   color: #fff;
+  @media (max-width: 600px) {
+    width: 85%;
+    padding: 20px;
+    border-radius: 10px;
+    top: 25%;
+    transform: translateX(-50%);
+  }
 }
 
 .task-container--name {
